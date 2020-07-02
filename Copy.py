@@ -33,6 +33,9 @@ def CopyFolder(source, destination):
                 shutil.copy(path, destination)
                 Total2 = Total2 + os.path.getsize(path)
                 print("Copying status: {:.2f}".format((Total2 / Total1) * 100))
+                progress = ((Total2 / Total1) * 100)
+                no_of_bars = int(progress/5)
+                print((bar)*(no_of_bars) + "{:.2f}".format(progress))
             elif os.path.isdir(path) is True:
                 print("Copying folder: ")
                 new_directory = os.path.join(destination, item)
